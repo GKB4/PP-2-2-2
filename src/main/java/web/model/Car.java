@@ -1,16 +1,16 @@
 package web.model;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class Car {
     private String model;
     private String color;
     private int year;
-    private static List<Car> cars = List.of(new Car("VAZ", "White", 1986),
-            new Car("GAZ", "Black", 1987),
-            new Car("UAZ", "Green", 1988),
-            new Car("Moskvich", "Yellow", 1989),
-            new Car("ZAZ", "Blue", 1990));
+    private static List<Car> cars = new ArrayList<>();
 
     public Car() {
     }
@@ -49,8 +49,8 @@ public class Car {
         return cars;
     }
 
-    public static void addCar(Car car) {
-        cars.add(car);
+    public static void addCar(String model, String color, int year) {
+        cars.add(new Car(model, color, year));
     }
 
     @Override
